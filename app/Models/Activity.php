@@ -10,6 +10,4 @@ class Activity extends Model
     {
         return $this->belongsToMany(Activity::class, 'activity_activity', 'activity_father_id','activity_id');
     }
-
-
 }
