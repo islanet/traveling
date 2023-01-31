@@ -6,9 +6,9 @@ namespace App\Repositories;
 abstract class BaseRepository
 {
     abstract public function getModel();
-    public function find($id)
+    public function find($id, $with)
     {
-        return $this->getModel()->find($id);
+        return $this->getModel()->where('id',$id)->with($with)->first();
     }
 
     public function getAll()

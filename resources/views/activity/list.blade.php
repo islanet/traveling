@@ -24,9 +24,8 @@
             format: 'dd/mm/yyyy',
             minDate: today,
         });
-        $('#search').click(function(){
-            debugger;
 
+        $('#search').click(function(){
             var url = "{{ route('activity.list') }}";
             var customer_count = $('#customer_count').val();
             var activity_at = $('#activity_at').val();
@@ -44,11 +43,41 @@
             },
             error:function(error){
                 debugger;
-                console.log(error);
+                alert(error.responseJSON.message);
             }
         });
+
     });
 
+});
+function makeReservation(link) {
+        debugger;
+            let url = "{{ route('reservation.store') }}";
+            let customer_count = $('#customer_count').val();
+            let activity_at = $('#activity_at').val();
+            let parts = activity_at.split('/');
+            activity_at = parts[2] +'-'+ parts[1] +'-'+ parts[0];
+            let activity_id = link.data('id');
+            let price = link.data('price');
 
-    } );
+            $.ajax({
+            type: "post",
+            url: url,
+            data:{
+                    "activity_at" : activity_at,
+                    "customer_count" : customer_count,
+                    "activity_id" : activity_id,
+                    "price": price
+                },
+            success: function(data)
+            {
+                debugger;
+                window.location = data.url;
+            },
+            error:function(error){
+                debugger;
+                alert(error.responseJSON.message);
+            }
+        });
+    };
 </script>

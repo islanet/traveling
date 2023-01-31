@@ -4,7 +4,7 @@ namespace App\Services;
 use App\Repositories\ActivityRepository;
 use Illuminate\Support\Collection;
 use Carbon\Carbon;
-
+use App\Models\Activity;
 class ActivityService
 {
     protected $activityRepo;
@@ -28,6 +28,11 @@ class ActivityService
             array_push($data, $item);
         }
         return $data;
+
+    }
+    public function find(int $activityId) : Activity
+    {
+        return $this->activityRepo->find($activityId, ['activities']);
 
     }
 }

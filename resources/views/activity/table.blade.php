@@ -17,8 +17,8 @@
                             <td>{{ $activity['title'] }}</td>
                             <td>{{ $activity['price'] }}</td>
                             <td>
-                                <a  class="btn btn-primary" href="{{ route('activity.list') }}" role="button">Reservar</a>
-                                <a  class="btn btn-primary" href="{{ route('activity.list') }}" role="button">Ver</a>
+                                <a  class="btn btn-primary" onClick="makeReservation($(this));" href="#" data-id="{{ $activity['id'] }}" data-price ="{{ $activity['price'] }}" role="button">Comprar</a>
+                                <a  class="btn btn-primary" href="{{ route('activity.show', ['id' => $activity['id']]) }}" role="button">Ver</a>
                             </td>
                         </tr>
                     @endforeach

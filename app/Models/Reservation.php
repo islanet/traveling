@@ -6,14 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'activity_id',
+        'activity_at',
+        'reservation_at',
+        'user_id',
+        'price',
+        'customer_count'
+    ];
+
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function activity()
     {
-        return $this->hasOne(Activity::class);
+        return $this->belongsTo(Activity::class);
     }
 
 }

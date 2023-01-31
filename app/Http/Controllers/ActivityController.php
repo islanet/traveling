@@ -32,4 +32,11 @@ class ActivityController extends Controller
             'activities' => $activities
         ]);
     }
+    public function show(int $activityId): View
+    {
+        $activity =  $this->activityService->find($activityId);
+        return view('activity.show', [
+            'activity' => $activity
+        ]);
+    }
 }
