@@ -12,6 +12,6 @@ class ReservationRepository extends BaseRepository
     }
     public function findByUserId($userId)
     {
-        return Reservation::where('user_id',$userId)->orderBy('activity_at', 'DESC')->with('activity')->get();
+        return Reservation::where('user_id',$userId)->orderBy('activity_at')->with('activity')->paginate(env('PAGINATION'));
     }
 }

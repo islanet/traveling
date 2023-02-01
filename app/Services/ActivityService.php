@@ -3,6 +3,7 @@
 namespace App\Services;
 use App\Repositories\ActivityRepository;
 use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Carbon\Carbon;
 use App\Models\Activity;
 class ActivityService

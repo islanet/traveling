@@ -2,7 +2,7 @@
 
 namespace App\Services;
 use App\Repositories\ReservationRepository;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Requests\Reservation\StoreRequest;
 
 use Carbon\Carbon;
@@ -23,7 +23,7 @@ class ReservationService
         return $this->reservationRepo->create($data);
     }
 
-    public function findByUser(int $userId):Collection
+    public function findByUser(int $userId):LengthAwarePaginator
     {
         return $this->reservationRepo->findByUserId($userId);
     }

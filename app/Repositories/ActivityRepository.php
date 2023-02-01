@@ -13,7 +13,7 @@ class ActivityRepository extends BaseRepository
 
     public function findByActivityAt($activityAt)
     {
-        return Activity::where('start_at','>=', $activityAt)->orWhere('end_at','>=', $activityAt)->orderBy('popularity', 'DESC')->get();
+        return Activity::where('start_at','>=', $activityAt)->orWhere('end_at','>=', $activityAt)->orderBy('popularity', 'DESC')->paginate(env('PAGINATION'));
     }
 
 }
