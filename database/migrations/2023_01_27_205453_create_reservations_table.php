@@ -19,8 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->integer('customer_count')->default(1);
             $table->float('price')->default(0);
-            $table->timestamp('reservation_at');
-            $table->timestamp('activity_at');
+            $table->timestamp('reservation_at')->nullable();
+            $table->timestamp('activity_at')->nullable();
             $table->timestamps();
         });
     }

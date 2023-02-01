@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->float('price')->default(0);
             $table->integer('popularity')->default(0);
-            $table->timestamp('start_at');
-            $table->timestamp('end_at');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->timestamps();
         });
     }
