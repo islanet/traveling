@@ -10,9 +10,12 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-    ],
-        build: {
-            outDir: '../dist'
-        }
+    ]
 
 });
+module.exports = {
+    root: 'src',
+    build: {
+      outDir: '../dist'
+    }
+  }
