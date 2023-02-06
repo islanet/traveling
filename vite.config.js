@@ -13,9 +13,3 @@ export default defineConfig({
     ]
 
 });
-module.exports = {
-    root: 'src',
-    build: {
-      outDir: '../dist'
-    }
-  }
